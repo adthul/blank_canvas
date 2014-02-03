@@ -1,28 +1,65 @@
-== README
+# Blank Canvas
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+By [Andrew Thul](github.com/adthul) and [Andre Smith](github.com/hobogrammer).
 
-Things you may want to cover:
+## Description
+**Blank Canvas** is a user friendly application that allows visitors to create a user account and profile. From within the app users can add any links that they want to keep track of. the links can be titled, have added descriptions, and be placed into custom folders for easy organization. Each user's personal collection of links can be searched by title to quickly find necessary resources. In the future we plan to allow sharing of links and folders between users as well as a central database of links that is searchable and organizable by all users.
 
-* Ruby version
+## Installation
 
-* System dependencies
+Run the following command from within the blank_canvas directory to install it:
 
-* Configuration
+```console
+bundle install
+```
 
-* Database creation
+Prepare your database:
 
-* Database initialization
+```console
+rake db:setup
+```
 
-* How to run the test suite
+For use in a local server run:
 
-* Services (job queues, cache servers, search engines, etc.)
+```console
+rails s
+```
 
-* Deployment instructions
+Then use this url to access the app in your browser:
 
-* ...
+localhost:3000
+
+Otherwise put into production with whetever public server you prefer, [Heroku](https://devcenter.heroku.com/articles/quickstart) for instance.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+<!--## Information
+
+Screenshots of your application below:
+
+![Screenshot 1](http://placekitten.com/400/300)
+
+![Screenshot 2](http://placekitten.com/400/300)
+
+
+### Known Issues
+
+If you discover any bugs, feel free to create an issue on GitHub fork and
+send us a pull request.
+
+[Issues List](Github Issues List URL goes here).
+-->
+
+## Authors
+
+* Andrew Thul
+* Andre Smith
+
+
+## Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
