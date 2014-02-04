@@ -12,6 +12,6 @@ feature "Users sign up" do
     click_on "Sign up"
 
     page.must_have_content "Welcome! You have signed up successfully."
-    page.must_have_content "You are signed in as test@example.com"
+    page.must_have_content "Signed in as: test@example.com"
   end
 end
