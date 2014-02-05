@@ -1,29 +1,26 @@
-<%= form_for(@folder) do |f| %>
-  <% if @folder.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@folder.errors.count, "error") %> prohibited this folder from being saved:</h2>
-
-      <ul>
-      <% @folder.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @folder, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :folder_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :folder_name, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :user_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :user_id, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :link_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :link_id, :class => 'text_field' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :folder_name %><br>
-    <%= f.text_field :folder_name %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :link_id %><br>
-    <%= f.number_field :link_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                folders_path, :class => 'btn' %>
   </div>
 <% end %>
