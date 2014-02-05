@@ -7,12 +7,12 @@ feature "Users sign up" do
     click_on "Sign Up"
 
     fill_in "User Name", with: "example"
-    fill_in "Email", with: "test@example.com"
+    fill_in "Email", with: "test1@example.com"
     fill_in "Password", with: "password"
     fill_in "Password Confirmation", with: "password"
 
     click_on "Sign up"
-
+    save_and_open_page
     page.must_have_content "Welcome! You have signed up successfully."
     page.must_have_content "Signed in as: example"
   end

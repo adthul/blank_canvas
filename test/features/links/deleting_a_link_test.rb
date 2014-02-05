@@ -3,7 +3,7 @@ require "test_helper"
 feature "Links delete action" do
   scenario "user deleting their link" do
     sign_in
-    link = Link.create!(title: "Destroy me", url: "http://destroyme.com", description: "to be destroyed", user_id: users(:Joe).id)
+    link = Link.create!(title: "Destroy me", url: "http://destroyme.com", description: "to be destroyed")
     visit links_path
 
     page.find("a[href='/links/#{link.id}'][data-method='delete']").click
