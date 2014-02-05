@@ -16,16 +16,16 @@
   <tbody>
     <% @folders.each do |folder| %>
       <tr>
-        <td><%= link_to folder.id, folder_path(folder) %></td>
+        <td><%= link_to folder.id, user_folder_path(current_user,folder) %></td>
         <td><%= folder.folder_name %></td>
         <td><%= folder.user_id %></td>
         <td><%= folder.link_id %></td>
         <td><%=l folder.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_folder_path(folder), :class => 'btn btn-mini' %>
+                      edit_user_folder_path(current_user,folder), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      folder_path(folder),
+                      user_folder_path(current_user,folder),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>
@@ -36,5 +36,5 @@
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_folder_path,
+            new_user_folder_path,
             :class => 'btn btn-primary' %>

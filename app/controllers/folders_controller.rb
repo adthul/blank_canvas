@@ -1,4 +1,5 @@
 class FoldersController < ApplicationController
+  before_action :load_user, only: [:new, :show, :create, :edit, :update]
   before_action :set_folder, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -9,14 +10,14 @@ class FoldersController < ApplicationController
   end
 
   def new
-    @folder = Folder.new
+    @folder = @user.folders.build
   end
 
   def edit
   end
 
   def create
-    @folder = Folder.new(folder_params)
+    @folder = @user.folders.new(folder_params)
 
     if @folder.save
       redirect_to @folder, notice: 'Folder was successfully created.'
@@ -39,6 +40,10 @@ class FoldersController < ApplicationController
   end
 
   private
+
+    def load_user
+      @user = User.find(params[:user_id])
+    end
 
     def set_folder
       @folder = Folder.find(params[:id])

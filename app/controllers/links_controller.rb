@@ -19,6 +19,7 @@ class LinksController < ApplicationController
     @link = Link.new(link_params)
 
     if @link.save
+      Folder.create!(link_id: @link.id, user_id: current_user.id)
       redirect_to @link, notice: 'Link was successfully created.'
     else
       render action: 'new'
