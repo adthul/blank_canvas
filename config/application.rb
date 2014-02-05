@@ -28,4 +28,5 @@ module BlankCanvas
       g.test_framework :mini_test, :spec => true, :fixture => false
     end
   end
+  I18n.enforce_available_locales = false
 end
