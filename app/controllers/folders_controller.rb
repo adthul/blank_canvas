@@ -20,7 +20,7 @@ class FoldersController < ApplicationController
     @folder = @user.folders.new(folder_params)
 
     if @folder.save
-      redirect_to @folder, notice: 'Folder was successfully created.'
+      redirect_to user_folders_path(@user,@folder), notice: 'Folder was successfully created.'
     else
       render action: 'new'
     end
@@ -36,7 +36,7 @@ class FoldersController < ApplicationController
 
   def destroy
     @folder.destroy
-    redirect_to folders_url
+    redirect_to user_folders_url
   end
 
   private

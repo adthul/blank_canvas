@@ -22,6 +22,9 @@
         <td><%= folder.link_id %></td>
         <td><%=l folder.created_at %></td>
         <td>
+
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      user_folder_path(current_user,folder), :class => 'btn btn-mini' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_user_folder_path(current_user,folder), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
