@@ -6,6 +6,5 @@ BlankCanvas::Application.routes.draw do
     resources :folders
   end
 
-
   root 'welcome#index'
 end
