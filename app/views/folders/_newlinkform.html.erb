@@ -1,0 +1,21 @@
+<%= form_for ([@user,@folder]), :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+      <%= f.label :folder_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :folder_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :link_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.label :link_id %>
+      <%= f.select :link_id, current_user.links.all.collect { |link| [link.title, link.id] } %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                user_folders_path, :class => 'btn' %>
+  </div>
+<% end %>
