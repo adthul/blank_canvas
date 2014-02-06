@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140205002946) do
+ActiveRecord::Schema.define(version: 20140206200334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "folders", force: true do |t|
-    t.string   "folder_name"
+    t.string   "folder_name", default: "Links"
     t.integer  "user_id"
     t.integer  "link_id"
     t.datetime "created_at"
