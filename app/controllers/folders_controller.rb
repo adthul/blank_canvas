@@ -1,5 +1,5 @@
 class FoldersController < ApplicationController
-  before_action :load_user, only: [:new, :show, :create, :edit, :update]
+  before_action :load_user, only: [:new, :show, :create, :edit, :update, :index]
   before_action :set_folder, only: [:show, :edit, :update, :destroy]
 
   def index
