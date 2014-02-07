@@ -4,6 +4,7 @@ class FoldersController < ApplicationController
 
   def index
     @folders = @user.folders.pluck(:folder_name).uniq
+    @folders.reject! { |f| f == "Links" }
   end
 
   def folder_links
@@ -43,6 +44,11 @@ class FoldersController < ApplicationController
   def destroy
     @folder.destroy
     redirect_to user_folders_url
+  end
+
+  def destroy_all
+    Folder.destroy_folder(params[:user_id], params[:folder_name])
+    redirect_to user_folders_path(current_user)
   end
 
   private
