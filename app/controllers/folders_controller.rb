@@ -4,7 +4,6 @@ class FoldersController < ApplicationController
 
   def index
     @folders = @user.folders.pluck(:folder_name).uniq
-    @folders.reject! { |f| f == "Links" }
   end
 
   def folder_links
@@ -25,11 +24,14 @@ class FoldersController < ApplicationController
 
   def create
     @folder = @user.folders.new(folder_params)
-
-    if @folder.save
-      redirect_to user_folders_path(@user,@folder), notice: 'Folder was successfully created.'
+    if Folder.unique_folder?(@user, @folder)
+      if @folder.save
+        redirect_to user_folders_path(@user,@folder), notice: 'Folder was successfully created.'
+      else
+        render action: 'new'
+      end
     else
-      render action: 'new'
+      redirect_to user_folders_path, notice: "Link already in folder."
     end
   end
 
@@ -46,11 +48,6 @@ class FoldersController < ApplicationController
     redirect_to user_folders_url
   end
 
-  def destroy_all
-    Folder.destroy_folder(params[:user_id], params[:folder_name])
-    redirect_to user_folders_path(current_user)
-  end
-
   private
 
     def load_user
@@ -60,6 +57,7 @@ class FoldersController < ApplicationController
     def set_folder
       @folder = Folder.find(params[:id])
     end
+
 
     def folder_params
       params.require(:folder).permit(:folder_name, :user_id, :link_id)
