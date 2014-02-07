@@ -1,9 +1,14 @@
 class FoldersController < ApplicationController
-  before_action :load_user, only: [:new, :show, :create, :edit, :update, :index]
+  before_action :load_user, only: [:new, :show, :create, :edit, :update, :index , :folder_links]
   before_action :set_folder, only: [:show, :edit, :update, :destroy]
 
   def index
-    @folders = Folder.all
+    @folders = @user.folders.pluck(:folder_name).uniq
+  end
+
+  def folder_links
+    @folders = @user.folders.includes(:link).where(folder_name: params[:folder_name])
+    @folder_name = params[:folder_name]
   end
 
   def show

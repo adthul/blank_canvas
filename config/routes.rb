@@ -6,5 +6,6 @@ BlankCanvas::Application.routes.draw do
     resources :folders
   end
 
+  get '/users/:user_id/folder/:folder_name', to: 'folders#folder_links', as: 'show_folder_links'
   root 'welcome#index'
 end

@@ -1,21 +1,11 @@
-<%= form_for ([@user,@folder]), :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-      <%= f.label :folder_name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :folder_name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :link_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.label :link_id %>
-      <%= f.select :link_id, current_user.links.all.collect { |link| [link.title, link.id] } %>
-    </div>
-  </div>
+<h4>Add existing link to folder</h4>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                user_folders_path, :class => 'btn' %>
+<%= form_for (current_user.folders.new), url: user_folders_path, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.hidden_field :folder_name, :value => "#{@folder_name}" %>
+  <div class="controls">
+    <%= f.label :link_id, "Select A Link" %>
+    <%= f.select :link_id, current_user.links.all.uniq.collect { |link| [link.title, link.id] } %>
+
+    <%= f.submit "Add link",:class => 'btn btn-success btn-sm' %>
   </div>
 <% end %>
