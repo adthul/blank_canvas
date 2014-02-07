@@ -1,0 +1,17 @@
+links:
+  id: 15
+  user_id: 15
+  link_id: 15
+  folder_name: Links
+
+this:
+  id: 16
+  user_id: 15
+  link_id: 15
+  folder_name: this
+
+unloved:
+  id: 17
+  user_id: 15
+  link_id: 16
+  folder_name: Links

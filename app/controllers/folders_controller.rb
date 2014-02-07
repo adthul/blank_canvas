@@ -27,7 +27,7 @@ class FoldersController < ApplicationController
     @folder = @user.folders.new(folder_params)
     if Folder.unique_folder?(@user, @folder)
       if @folder.save
-        redirect_to user_folders_path(@user,@folder), notice: 'Folder was successfully created.'
+        redirect_to show_folder_links_path(@user,@folder.folder_name), notice: 'Link was successfully added.'
       else
         render action: 'new'
       end

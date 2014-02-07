@@ -25,6 +25,7 @@ end
 group :test do
   gem 'launchy', '~> 2.4.2'
   gem 'minitest-rails-capybara', '~> 0.10.0'
+  gem 'simplecov'
 end
 
 group :development do
