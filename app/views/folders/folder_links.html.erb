@@ -6,25 +6,17 @@
   <thead>
     <tr>
       <th>Link Title</th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th>Options</th>
     </tr>
   </thead>
   <tbody>
     <% @folders.each do |folder| %>
       <tr>
         <td><%= folder.link.title if folder.link.present? %></td>
-        <td><%=l folder.created_at %></td>
         <td>
-          <%= link_to t('.show', :default => t("helpers.link.show")),
-                      user_folder_path(current_user,folder), :class => 'btn btn-mini' %>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_user_folder_path(current_user,folder), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      user_folder_path(current_user,folder),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
+          <%= link_to "Show Link", link_path(folder.link), class: 'btn btn-info' %>
+          <%= link_to "Edit", edit_link_path(folder.link), class: 'btn btn-success' %>
+          <%= link_to "Delete", link_path(folder.link), :data => { :confirm => 'Are you sure?' }, :method => :delete, class: 'btn btn-danger' %>
         </td>
       </tr>
     <% end %>

@@ -1,6 +1,6 @@
 <%- model_class = Folder -%>
 <div class="page-header">
-  <h1>Your Folders</h1>
+  <h1>My Folders</h1>
 </div>
 <table class="table table-striped">
   <thead>
@@ -15,14 +15,11 @@
         <td><%= folder %></td>
 
         <td>
-          <%= link_to t('.show', :default => t("helpers.links.show")),
-                      show_folder_links_path(params[:user_id],folder), :class => 'btn btn-mini' %>
+          <%= link_to "Open Folder", show_folder_links_path(params[:user_id],folder), class: 'btn btn-info' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_user_folder_path,
-            :class => 'btn btn-primary' %>
+<%= link_to "New Folder", new_user_folder_path, class: 'btn btn-success' %>

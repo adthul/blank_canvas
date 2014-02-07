@@ -1,20 +1,13 @@
 <%= form_for ([current_user,@folder]), :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :folder_name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :folder_name, :class => 'text_field' %>
+  <div class="form-horizontal">
+    <div class="form-group">
+      <div class="col-sm-3 control-label"><%= f.label :folder_name, "Folder Name" %></div>
+      <div class="col-sm-6"><%= f.text_field :folder_name, class: "form-control", placeholder: "New folder name here" %></div>
     </div>
   </div>
-  <div class="control-group">
-    <%= f.label :link_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :link_id, :class => 'text_field' %>
-    </div>
-  </div>
-
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                user_folders_path, :class => 'btn' %>
+  <div class="col-sm-1"></div>
+  <div class="form-actions col-sm-3">
+    <%= f.submit nil, class: 'btn btn-success' %>
+    <%= link_to "Back", :back, class: "btn btn-info" %>
   </div>
 <% end %>
