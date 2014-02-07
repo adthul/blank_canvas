@@ -11,13 +11,14 @@
   </thead>
   <tbody>
     <% @folders.each do |folder| %>
-      <tr>
+      <tr><% unless folder == "Links" %>
         <td><%= folder %></td>
 
         <td>
           <%= link_to "Open Folder", show_folder_links_path(params[:user_id],folder), class: 'btn btn-info' %>
           <%= link_to "Delete", delete_folder_path(current_user.id, folder), :data => { :confirm => 'Are you sure?' }, :method => :delete, class: 'btn btn-danger' %>
         </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
