@@ -18,6 +18,7 @@ class FoldersController < ApplicationController
 
   def new
     @folder = @user.folders.build
+    @folder.folder_name = ""
   end
 
   def edit
