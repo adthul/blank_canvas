@@ -3,7 +3,7 @@
 By [Andrew Thul](github.com/adthul) and [Andre Smith](github.com/hobogrammer).
 
 ## Description
-**Blank Canvas** is a user friendly application that allows visitors to create a user account and profile. From within the app users can add any links that they want to keep track of. the links can be titled, have added descriptions, and be placed into custom folders for easy organization. Each user's personal collection of links can be searched by title to quickly find necessary resources. In the future we plan to allow sharing of links and folders between users as well as a central database of links that is searchable and organizable by all users.
+**Blank Canvas** is a user friendly application that allows visitors to create a user account and profile. From within the app users can add any links that they want to keep track of. the links can be titled, have added descriptions, and be placed into custom folders for easy organization. In the future each user's personal collection of links can be searched by title to quickly find necessary resources. Additionally, sharing of links and folders between users will be available as well as a central database of links that is searchable and organizable by all users.
 
 ## Installation
 
@@ -54,6 +54,18 @@ send us a pull request.
 
 * Andrew Thul
 * Andre Smith
+
+
+## Collaborators
+
+* Nick Case
+* Brook Riggio
+* Ivan Storck
+* Miles Starkenburg
+* Dillan Grant
+* John Jensen
+* Margaret Morris
+* Justin Hill
 
 
 ## Contributing

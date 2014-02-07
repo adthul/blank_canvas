@@ -2,7 +2,7 @@ class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
 
   def index
-    @links = Link.all
+    @links = current_user.links.all.uniq
   end
 
   def show
@@ -20,7 +20,7 @@ class LinksController < ApplicationController
 
     if @link.save
       Folder.create!(link_id: @link.id, user_id: current_user.id)
-      redirect_to @link, notice: 'Link was successfully created.'
+      redirect_to links_path, notice: 'Link was successfully created.'
     else
       render action: 'new'
     end
@@ -28,7 +28,7 @@ class LinksController < ApplicationController
 
   def update
     if @link.update(link_params)
-      redirect_to @link, notice: 'Link was successfully updated.'
+      redirect_to links_path, notice: 'Link was successfully updated.'
     else
       render action: 'edit'
     end

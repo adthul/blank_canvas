@@ -7,5 +7,6 @@
     <%= f.select :link_id, current_user.links.all.uniq.collect { |link| [link.title, link.id] } %>
 
     <%= f.submit "Add link",:class => 'btn btn-success btn-sm' %>
+    <%= link_to "Back", :back, class: "btn btn-info btn-sm" %>
   </div>
 <% end %>
