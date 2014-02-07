@@ -31,4 +31,5 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'pry', '~> 0.9.12.6'
+  gem 'pry-debugger'
 end

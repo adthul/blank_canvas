@@ -47,7 +47,8 @@ class FoldersController < ApplicationController
   end
 
   def destroy_all
-    Folder.destroy_folder(params[:id], params[:folder_name])
+    Folder.destroy_folder(params[:user_id], params[:folder_name])
+    redirect_to user_folders_path(current_user)
   end
 
   private
