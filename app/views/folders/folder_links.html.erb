@@ -16,7 +16,7 @@
         <td>
           <%= link_to "Show Link", link_path(folder.link), class: 'btn btn-info' %>
           <%= link_to "Edit", edit_link_path(folder.link), class: 'btn btn-success' %>
-          <%= link_to "Delete", link_path(folder.link), :data => { :confirm => 'Are you sure?' }, :method => :delete, class: 'btn btn-danger' %>
+          <%= link_to "Delete", user_folder_path(current_user.id, folder.id), :data => { :confirm => 'Are you sure?' }, :method => :delete, class: 'btn btn-danger' %>
         </td>
       </tr>
     <% end %>
