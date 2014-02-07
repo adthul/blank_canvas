@@ -7,7 +7,8 @@ class FoldersController < ApplicationController
   end
 
   def folder_links
-    @folders = @user.folders.includes(:link).where(folder_name: params[:folder_name])
+    @folders = @user.folders.includes(:link).where(folder_name: params[:folder_name]).to_a
+    @folders.reject! { |f| f.link_id == nil }
     @folder_name = params[:folder_name]
   end
 
